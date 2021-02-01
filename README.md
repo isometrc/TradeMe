@@ -1,2 +1,2 @@
-# trademe
-A repo for collaboration on trademe
+# TradeMe
+A repo for collaboration on trademe.
