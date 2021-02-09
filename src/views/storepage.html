@@ -1,1127 +1,937 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>TradeMe</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<style>
- body {font-family: Arial, Helvetica, sans-serif;}
-  * {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial;
-  padding: 0px;
-  background: #f1f1f1;
- 
-  
-}
-
-/* Header/Blog Title */
-
-img {
-width:15%;
-}
-
-
-
-
-/* Style the top navigation bar */
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-
-/* Change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-body {
-  margin: 0;
-}
-
-li a:hover {
-background-color: #4CAF50;
-
-}
-
-
-li a:hover(.active) {
-    background-color: white;
-  }
-  
-  .active {
-    background-color: #4CAF50;
-  }
-
-  #bruh {
-    color: #4CAF50;
-display: inline
-
-}
-/* Create two unequal columns that floats next to each other */
-/* Left column */
-.leftcolumn {   
-float: left;
-  width: 25%;
-  background-color: #f1f1f1;
-}
-
-/* Right column */
-.rightcolumn {
-  float: left;
-  width: 75%;
-  padding-left: 20px;
-}
-
-/* Fake image */
-.fakeimg {
-  background-color: white;
-  width: 100%;
-  padding: 20px;
-}
-
-/* Add a card effect for articles */
-.card {
-  
-  border: 2px solid #4CAF50;
-  padding: 20px;
-  margin-top: 20px;
-}
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#th-tr {
-  background-color: #4CAF50;
-  z-index: 0;
-
-}
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: grey;
-  color: white;
-}
-tr:nth-child(odd) {
-  background-color: grey;
-  color: white;
-}
-tr:hover {
-  background-color: #4CAF50;
-
-  
-}
-
-/* The scrollable part */
-#item-list {
-  cursor: pointer;
-
-
-
-}
-.scrollable {
-  height: 366px;
-  overflow: auto;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  position: sticky;
-  background-color: white;
-  z-index: 1;
-  top: 0;
-}
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-#mybtn2 {
-border: none;
-color:white;
-padding: 8px 8px;
-font-size: 18px;
-display: inline-block;
-margin-top: 0px;
-margin-left: 800px;
-margin-bottom: 0px;
-margin-right: 12px;
-background-color:  #4CAF50;
-cursor: pointer;
-}
-#myBtn2 {
-border: none;
-color:white;
-padding: 8px 8px;
-font-size: 18px;
-display: inline-block;
-margin-top: 0px;
-margin-left: 800px;
-margin-bottom: 0px;
-margin-right: 12px;
-background-color:  #4CAF50;
-cursor: pointer;
-}
-#myBtn3 {
-  cursor: pointer;
-}
-#myBtn4 {
-  cursor: pointer;
-}
-#myBtn5 {
-  border: none;
-color:white;
-
-font-size: 18px;
-display: inline-block;
-margin-top: 0px;
-margin-left: 0px;
-margin-bottom: 0px;
-margin-right: 0px;
-background-color:  #333;
-cursor: pointer;
-  
-  
-}
-
-#myBtn6 {
-border: none;
-color:white;
-padding: 8px 8px;
-font-size: 18px;
-display: inline-block;
-margin-top: 0px;
-margin-left: 80%;
-margin-bottom: 0px;
-margin-right: 0px;
-background-color:  #4CAF50;
-cursor: pointer;
-}
-#myBtn7 {
-  cursor: pointer;
-}
-#myBtn8 {
-  cursor: pointer;
-}
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 12px 0 12px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* The Modal (background) */
-.modal2 {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content2 {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
-
-
-.modal-header2 {
-  padding: 2px 16px;
-  background-color:  #4CAF50;
-  color: white;
-}
-
-.modal-body2 {padding: 2px 16px;}
-
-.modal-footer2 {
-  padding: 2px 16px;
-  background-color: #4CAF50;
-  color: white;
-}
-
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  
-  background-color: #f1f1f1;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  float: right;
-  border: 1px ;
-  outline: none;
-  cursor: pointer;
-  padding: 8px 16px;
-  transition: 0.3s;
-  
-  
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #4CAF50;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-/* Style the tab content */
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    margin-bottom: 50px;
-    margin-top: 0px;
-    border: 1px solid #888;
-    width: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-.Close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.Close:hover,
-.Close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-  .footer {
-  color: white;
-  padding-bottom: 1px;
-  text-align: center;
-  background: #4CAF50;
-  margin-top: 40px;
-}
-div.form
-{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: block;
-    text-align: center;
-    
-}
-form
-{
-    
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    
-    
-}
-/* Full-width input fields */
-input[type=text], input[type=Number], input[type=tel] {
-  width: 100%;
-  padding: 15px;
-  
-  margin: 12px 0 12px 0;
-  display: block;
-  border: none;
-  background: #f1f1f1;
-  
-}
-
-
-input[type=text]:focus, input[type=Number]:focus, input[type=tel]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-/* Extra styles for the cancel button */
-.cancelbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
-}
-
-/* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
-  float: left;
-  width: 100%;
-
-}
-.signupbtn {
-  border: none;
-color:white;
-padding: 8px 8px;
-font-size: 18px;
-display: inline-block;
-margin-top: 10px;
-
-background-color:  #4CAF50;
-cursor: pointer;
-}
-/* Add padding to container elements */
-.container {
-  padding: 16px;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {   
-    width: 100%;
-    padding: 0;
-  }
-}
-
-/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-@media screen and (max-width: 400px) {
-  .topnav a {
-    float: none;
-    width: 100%;
-  }
-}
-
-</style>
-</head>
-<body>
-  <div id="Tokyo" class="tabcontent">
-<div style="background-color:  #4CAF50; height: 500px; width: 100%; ">
-  
-  
-    <img src="/assets/images/logo.png" alt="logo" style=" position: absolute; width:700px;height:600px;  vertical-align:middle;margin:1px 450px; vertical-align: top;margin-bottom: 200px; ">
-</div>
-<ul>
-  <!-- <li><a href="/">Home</a></li> -->
-  <!-- <li><a class="active" href="storepage.html">Store</a></li> -->
-  <li style="float:right"><a href="/signout.html">Sign out</a></li>
-  <li  style="float:right"><a href="#myModal5" class="modal-button"  >Direct Transfer</a></li>
-</ul>
-
-
-
-<script type="text/javascript">
-  function refreshOrders()
-  {
-      var itemname = "pineapple";
-      $.post("/sellorder", {name: itemname}, function(data, status)
-      {  
-          console.log(data);
-          $('#sellorder').remove();
-          $('#sell-orders tr:last').after(data);
-      });
-
-      $.post("/buyorder", {name: itemname}, function(data, status)
-      {
-          console.log(data);
-          $('#buyorder').remove();
-          $('#buy-orders tr:last').after(data);
-      });
-  }
-</script>
-<h1 style="text-align: center;padding-bottom: 20px;">THE STORE</h1>
-
-
-
-
-
-<div class="row">
-<div class="leftcolumn">
-<div class="card">
-<div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'Paris')" >Contracts</button>
-    <button class="tablinks" onclick="openCity(event, 'Tokyo')" id="defaultOpen" >Items</button>
-</div>
- 
-<h2 id="bruh">ITEMS</h2>
-
-<hr>
-<div class="fakeimg" style="height:883px;">
-  <div class="scrollable">
-    <table id="item-list">
-      <tbody>
-        <tr>
-          <td onclick="refreshOrders()">Pineapples</td>
-        </tr>
-      </tbody>
-    </table>
-</div> 
-
-
-
-</div>
-</div>
-
-</div>
-<div id="myModal2" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">×</span>
-      <h2 style="text-align:center;">TradeMe</h2>
-    </div>
-    <div class="modal-body">
-      <h2 style="text-align: center;margin-bottom :5px;"><b>Post Sell-order</b></h2>
-      <hr>
-      <div class="form">
-        <form action="/signup" method="POST" style="width: 500px;">
-           <div class="container">
-            
-            
-            <label for="Price"><b>Price</b></label>
-            <input type="Number" min="0" max="10000000" placeholder="Enter Price" name="Price" required>
-
-            <label for="Quantity Available"><b>Quantity Needed</b></label>
-            <input type="Number" min="0" max="10000000" placeholder="Enter Quantity Available" name="Quantity Needed" required>
-
-            <label for="Location"><b>Location</b></label>
-            <input type="text" size="40" maxlength="40" placeholder="Dining hall-dinner time" name="Location" required>
-
-            <label for="Date of expiration"><b>Date of expiration</b></label>
-            <input type="tel" size="10" maxlength="10"  placeholder="dd/mm/yyyy"
-            oninput="this.value = DDMMYYYY(this.value, event)" name="Date of expiration" required>
-
-            <label for="Note"><b>Note</b></label>
-            <input type="text" size="40" maxlength="40" placeholder="Enter Note" name="Note" >
-        
-            <div class="clearfix">
-              <button type="submit" class="signupbtn" >Send</button>
+    <head>
+        <title>TradeMe</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+            * {
+            box-sizing: border-box;
+            }
+            body {
+            font-family: Arial;
+            padding: 0px;
+            background: #f1f1f1;
+            }
+            /* Header/Blog Title */
+            img {
+            width:15%;
+            }
+            /* Style the top navigation bar */
+            .topnav {
+            overflow: hidden;
+            background-color: #333;
+            }
+            /* Style the topnav links */
+            .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+            /* Change color on hover */
+            .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+            }
+            ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            }
+            li {
+            float: left;
+            }
+            li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+            body {
+            margin: 0;
+            }
+            li a:hover {
+            background-color: #4CAF50;
+            }
+            li a:hover(.active) {
+            background-color: white;
+            }
+            .active {
+            background-color: #4CAF50;
+            }
+            #bruh {
+            color: #4CAF50;
+            display: inline
+            }
+            /* Create two unequal columns that floats next to each other */
+            /* Left column */
+            .leftcolumn {   
+            float: left;
+            width: 25%;
+            background-color: #f1f1f1;
+            }
+            /* Right column */
+            .rightcolumn {
+            float: left;
+            width: 75%;
+            padding-left: 20px;
+            }
+            /* Fake image */
+            .fakeimg {
+            background-color: white;
+            width: 100%;
+            padding: 20px;
+            }
+            /* Add a card effect for articles */
+            .card {
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            margin-top: 20px;
+            }
+            table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            }
+            #th-tr {
+            background-color: #4CAF50;
+            z-index: 0;
+            }
+            td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            }
+            tr:nth-child(even) {
+            background-color: grey;
+            color: white;
+            }
+            tr:nth-child(odd) {
+            background-color: grey;
+            color: white;
+            }
+            tr:hover {
+            background-color: #4CAF50;
+            }
+            /* The scrollable part */
+            #item-list {
+            cursor: pointer;
+            }
+            .scrollable {
+            height: 366px;
+            overflow: auto;
+            border-bottom: 1px solid #ddd;
+            }
+            th {
+            position: sticky;
+            background-color: white;
+            z-index: 1;
+            top: 0;
+            }
+            /* Clear floats after the columns */
+            .row:after {
+            content: "";
+            display: table;
+            clear: both;
+            }
+            #mybtn2 {
+            border: none;
+            color:white;
+            padding: 8px 8px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 0px;
+            margin-left: 800px;
+            margin-bottom: 0px;
+            margin-right: 12px;
+            background-color:  #4CAF50;
+            cursor: pointer;
+            }
+            #myBtn2 {
+            border: none;
+            color:white;
+            padding: 8px 8px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 0px;
+            margin-left: 800px;
+            margin-bottom: 0px;
+            margin-right: 12px;
+            background-color:  #4CAF50;
+            cursor: pointer;
+            }
+            #myBtn3 {
+            cursor: pointer;
+            }
+            #myBtn4 {
+            cursor: pointer;
+            }
+            #myBtn5 {
+            border: none;
+            color:white;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 0px;
+            margin-left: 0px;
+            margin-bottom: 0px;
+            margin-right: 0px;
+            background-color:  #333;
+            cursor: pointer;
+            }
+            #myBtn6 {
+            border: none;
+            color:white;
+            padding: 8px 8px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 0px;
+            margin-left: 80%;
+            margin-bottom: 0px;
+            margin-right: 0px;
+            background-color:  #4CAF50;
+            cursor: pointer;
+            }
+            #myBtn7 {
+            cursor: pointer;
+            }
+            #buyorders {
+            cursor: pointer;
+            }
+            #sellorders {
+            cursor: pointer;
+            }
+            input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0 12px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+            }
+            input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+            }
+            /* The Modal (background) */
+            .modal2 {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+            /* Modal Content */
+            .modal-content2 {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+            }
+            /* Add Animation */
+            @-webkit-keyframes animatetop {
+            from {top:-300px; opacity:0} 
+            to {top:0; opacity:1}
+            }
+            @keyframes animatetop {
+            from {top:-300px; opacity:0}
+            to {top:0; opacity:1}
+            }
+            .modal-header2 {
+            padding: 2px 16px;
+            background-color:  #4CAF50;
+            color: white;
+            }
+            .modal-body2 {padding: 2px 16px;}
+            .modal-footer2 {
+            padding: 2px 16px;
+            background-color: #4CAF50;
+            color: white;
+            }
+            /* Style the tab */
+            .tab {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            }
+            /* Style the buttons inside the tab */
+            .tab button {
+            background-color: inherit;
+            float: right;
+            border: 1px ;
+            outline: none;
+            cursor: pointer;
+            padding: 8px 16px;
+            transition: 0.3s;
+            }
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+            background-color: #4CAF50;
+            }
+            /* Create an active/current tablink class */
+            .tab button.active {
+            background-color: #ccc;
+            }
+            /* Style the tab content */
+            /* The Modal (background) */
+            .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+            /* Modal Content */
+            .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            margin-bottom: 50px;
+            margin-top: 0px;
+            border: 1px solid #888;
+            width: 50%;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+            }
+            /* Add Animation */
+            @-webkit-keyframes animatetop {
+            from {top:-300px; opacity:0}
+            to {top:0; opacity:1}
+            }
+            @keyframes animatetop {
+            from {top:-300px; opacity:0}
+            to {top:0; opacity:1}
+            }
+            /* The Close Button */
+            .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            }
+            .close:hover,
+            .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+            }
+            .Close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            }
+            .Close:hover,
+            .Close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+            }
+            .modal-header {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+            }
+            .modal-body {padding: 2px 16px;}
+            .modal-footer {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+            }
+            .footer {
+            color: white;
+            padding-bottom: 1px;
+            text-align: center;
+            background: #4CAF50;
+            margin-top: 40px;
+            }
+            div.form
+            {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+            }
+            form
+            {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            }
+            /* Full-width input fields */
+            input[type=text], input[type=Number], input[type=tel] {
+            width: 100%;
+            padding: 15px;
+            margin: 12px 0 12px 0;
+            display: block;
+            border: none;
+            background: #f1f1f1;
+            }
+            input[type=text]:focus, input[type=Number]:focus, input[type=tel]:focus {
+            background-color: #ddd;
+            outline: none;
+            }
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+            }
+            /* Float cancel and signup buttons and add an equal width */
+            .cancelbtn, .signupbtn {
+            float: left;
+            width: 100%;
+            }
+            .signupbtn {
+            border: none;
+            color:white;
+            padding: 8px 8px;
+            font-size: 18px;
+            display: inline-block;
+            margin-top: 10px;
+            background-color:  #4CAF50;
+            cursor: pointer;
+            }
+            /* Add padding to container elements */
+            .container {
+            padding: 16px;
+            }
+            /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 800px) {
+            .leftcolumn, .rightcolumn {   
+            width: 100%;
+            padding: 0;
+            }
+            }
+            /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+            @media screen and (max-width: 400px) {
+            .topnav a {
+            float: none;
+            width: 100%;
+            }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="Tokyo" class="tabcontent">
+            <div style="background-color:  #4CAF50; height: 500px; width: 100%; ">
+                <img src="logo.png" alt="logo" style=" position: absolute; width:700px;height:600px;  vertical-align:middle;margin:1px 450px; vertical-align: top;margin-bottom: 200px; ">
             </div>
-          </div>
-        </form>
-      </div>
-
-      
-    </div>
-    <div class="modal-footer">
-      <h2 style="text-align:center;"></h2>
-    </div>
-  </div>
-
-</div>
-<div class="rightcolumn">
-  
-<div class="card">
-<h2 id="bruh">Sell orders</h2>
-
-<button class="modal-button" href="#myModal2" id="myBtn6">Post sell order</button>
-<hr>
-<div class="scrollable">
- <table id="sell-orders">
-  <tbody>
-    <tr >
-      <th id="th-tr" >Price</th>
-      <th id="th-tr">Quantity Available</th>
-      <th id="th-tr">Location</th>
-      <th id="th-tr">Date of expiration</th>
-    </tr>
-
-<tr id="myBtn" href="#myModal">
-  
-  <td id=>Quantity</td>
-  <td>Quantity</td>
-  <td>Quantity</td>
-  <td>Quantity</td>
-  
-</tr>
-</tbody>
-</table>
-</div> 
-    
-</div>
-<div id="myModal" class="modal">
-
-  <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">×</span>
-        <h2 style="text-align:center;">TradeMe</h2>
-      </div>
-      <div class="modal-body" >
-        <h2 id="bruh">Description</h2>
-        <hr style="margin-bottom:20px;">
-        <div class="scrollable" style="height: 325px;">
-          <table id="sell-orders-row"  >
-              <tbody>
-                  <tr>
-                    <th id="th-tr" >Label</th>
-                    <th id="th-tr" style="width: 475px;">Information</th>
-                  </tr>
-                  <tr >
-                    <td >Creator</td>
-                    <td></td>
-                  </tr>
-                  <tr >
-                    <td >Name</td>
-                    <td></td>
-                  </tr> 
-                  <tr >
-                    <td >Price</td>
-                    <td></td>
-                  </tr> 
-                  <tr >
-                    <td >Quantity Available</td>
-                    <td></td>
-                  </tr>    
-                  <tr >
-                    <td >Location</td>
-                    <td></td>
-                  </tr>
-                  <tr >
-                    <td >Date of expiration</td>
-                    <td></td>
-                  </tr> 
-                  <tr >
-                    <td >Note</td>
-                    <td></td>
-                  </tr> 
-              </tbody>
-          </table>
-        </div>
-        
-        
-          
-        <hr>
-        <div class="form">
-          <form action="/signup" method="POST" style="width: 500px;">
-             <div class="container">
-              
-              
-              <input type="Number" min="0" max="10000000" placeholder="Enter Amount" name="Amount" required>
-          
-              <div class="clearfix">
-                <button type="submit" class="signupbtn" >Submit</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <h2 style="text-align:center;"></h2>
-      </div>
-  </div>
-  
-  </div>
-
-<div class="card">
-  <h2 id="bruh">Buy Orders</h2>
-
-<!-- Trigger/Open The Modal -->
-<button class="modal-button" href="#myModal3" id="myBtn6">Post buy order</button>
-
-<!-- The Modal -->
-<div id="myModal3" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">×</span>
-      <h2 style="text-align:center;">TradeMe</h2>
-    </div>
-    <div class="modal-body">
-      <h2 style="text-align: center;margin-bottom :5px;"><b>Post Buy-order</b></h2>
-      <hr>
-      <div class="form">
-        <form action="/signup" method="POST" style="width: 500px;">
-           <div class="container">
-      
-            
-            <label for="Price"><b>Price</b></label>
-            <input type="Number" min="0" max="10000000"  placeholder="Enter Price" name="Price" required>
-
-            <label for="Quantity Needed"><b>Quantity Needed</b></label>
-            <input type="Number" min="0" max="10000000" placeholder="Enter Quantity Needed" name="Quantity Needed" required>
-
-            <label for="Location"><b>Location</b></label>
-            <input type="text" size="100" maxlength="100" placeholder="Dining hall-dinner time" name="Location" required>
-
-            <label for="Date of expiration"><b>Date of expiration</b></label>
-            <input type="tel" size="10" maxlength="10"  placeholder="dd/mm/yyyy"
-            oninput="this.value = DDMMYYYY(this.value, event)" name="Date of expiration" required>
-
-            <label for="Note"><b>Note</b></label>
-            <input type="text" size="40" maxlength="40" placeholder="Enter Note" name="Note" >
-
-            
-        
-            <div class="clearfix">
-              <button type="submit" class="signupbtn" >Send</button>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      
-    </div>
-    <div class="modal-footer">
-      <h2 style="text-align:center;"></h2>
-    </div>
-  </div>
-
-</div>
-
-<div id="myModal5" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">×</span>
-      <h2 style="text-align:center;">TradeMe</h2>
-    </div>
-    <div class="modal-body">
-      <h2 style="text-align: center;margin-bottom: 5px;"><b>Direct transfer</b></h2>
-      <hr>
-      <div class="form">
-        <form action="/directtransfer" method="POST" style="width: 500px;">
-           <div class="container">
-            <label for="Display Name"><b>Display Name</b></label>
-            <input type="text" size="40" maxlength="40" placeholder="Enter Display Name" name="Display Name" required>
-            
-            <label for="Amount"><b>Amount</b></label>
-            <input type="Number" min="0" max="10000000" placeholder="Enter Amount" name="Amount" required>
-        
-            <div class="clearfix">
-              <button type="submit" class="signupbtn" >Send</button>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      
-    </div>
-    <div class="modal-footer">
-      <h2 style="text-align:center;"></h2>
-    </div>
-  </div>
-
-</div>
-
-
-
- 
-
-<hr>
-
-<div id="myModal4" class="modal">
-
-  <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">×</span>
-        <h2 style="text-align:center;">TradeMe</h2>
-      </div>
-      <div class="modal-body" >
-        <h2 id="bruh">Description</h2>
-        <hr style="margin-bottom:20px;">
-        <div class="scrollable" style="height: 325px;">
-          <table id="buy-orders-row"  >
-              <tbody>
-                  <tr>
-                    <th id="th-tr" >Label</th>
-                    <th id="th-tr" style="width: 475px;">Information</th>
-                  </tr>
-                  <tr >
-                    <td >Creator</td>
-                    <td></td>
-                  </tr>
-                  <tr >
-                    <td >Name</td>
-                    <td></td>
-                  </tr> 
-                  <tr >
-                    <td >Price</td>
-                    <td></td>
-                  </tr> 
-                  <tr >
-                    <td >Quantity Needed</td>
-                    <td></td>
-                  </tr>    
-                  <tr >
-                    <td >Location</td>
-                    <td></td>
-                  </tr>
-                  <tr >
-                    <td >Date of expiration</td>
-                    <td></td>
-                  </tr> 
-                  <tr >
-                    <td >Note</td>
-                    <td></td>
-                  </tr> 
-              </tbody>
-          </table>
-        </div> 
-        
-        <hr>
-        <div class="form">
-          <form action="/signup" method="POST"style="width: 500px;" >
-             <div class="container">
-              
-              
-              <input type="Number" min="0" max="10000000" placeholder="Enter Amount" name="Amount" required>
-
-              
-
-              
-          
-              <div class="clearfix">
-                <button type="submit" class="signupbtn" >Submit</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <h2 style="text-align:center;"></h2>
-      </div>
-  </div>
-  
-  </div>
-
-  <div class="scrollable">
-   
-      <table id="buy-orders">
-      
-          <tbody>
-              
-
-              <tr>
-                  <th id="th-tr" >Price</th>
-                  <th id="th-tr">Quantity Needed</th>
-                  <th id="th-tr">Location</th>
-                  <th id="th-tr">Date of expiration</th>
-               </tr>
-               <tr id="myBtn8"   href="#myModal4">
-                <td >Quantity</td>
-                <td>Quantity</td>
-                <td>Quantity</td>
-                <td>Quantity</td>
-             </tr>
-               
-          </tbody>
-       
-  </table>
-    </div> 
-</div>
-
-</div>
-</div>
- <div class="footer">
-  <h2>Incomplete alpha testing version</h2>
-  </div>
-</div>
-
-
-<div id="Paris" class="tabcontent">
-  <div style="background-color:  #4CAF50; height: 500px; width: 1351px; ">
-  
-  
-    <img src="/assets/images/logo.png" alt="logo" style=" position: absolute; width:700px;height:600px;  vertical-align:middle;margin:1px 450px; vertical-align: top;margin-bottom: 200px; ">
-</div>
-<ul>
-  <!-- <li><a href="/">Home</a></li> -->
-  <!-- <li><a class="active" href="storepage.html">Store</a></li> -->
-  <li style="float:right"><a href="/signout.html">Sign out</a></li>
-  <li  style="float:right"><a href="#myModal6" class="modal-button"  >Direct Transfer</a></li>
-</ul>
-
-  <h1 style="text-align: center;padding-bottom: 20px;">THE STORE</h1>
-<div class="row">
-<div class="leftcolumn">
-<div class="card">
-  <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'Paris')" >Contracts</button>
-    <button class="tablinks" onclick="openCity(event, 'Tokyo')" id="defaultOpen" >Items</button>
-    
-    
-  </div>
- 
-<h2 id="bruh">Contracts</h2>
-
-<hr>
-<div class="fakeimg" style="height:883px;">
-  <div class="scrollable">
-      <table id="item-list">
-        <tbody>
-        <tr>
-          <td onclick="refreshOrders()">Pineapples</td>
-        </tr>
-        </tbody>
-      </table>
-    </div> 
-
-    <div id="myModal6" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header">
-          <span class="close">×</span>
-          <h2 style="text-align:center;">TradeMe</h2>
-        </div>
-        <div class="modal-body">
-          <h2 style="text-align: center;margin-bottom: 5px;"><b>Direct transfer</b></h2>
-          <hr>
-          <div class="form">
-            <form action="/signup" method="POST" style="width: 500px;">
-               <div class="container">
-                <label for="Display Name"><b>Display Name</b></label>
-                <input type="text" size="40" maxlength="40" placeholder="Enter Display Name" name="Display Name" required>
+            <ul>
+                <!-- <li><a href="/">Home</a></li> -->
+                <!-- <li><a class="active" href="storepage.html">Store</a></li> -->
+                <li style="float:right"><a href="/signout.html">Sign out</a></li>
+                <li  style="float:right"><a href="#myModal5" class="modal-button"  >Direct Transfer</a></li>
+            </ul>
+            <script type="text/javascript">
+                function refreshOrders()
+                {
+                    var itemname = "pineapple";
+                    $.post("/sellorder", {name: itemname}, function(data, status)
+                    {  
+                        console.log(data);
+                        $('#sellorder').remove();
+                        $('#sell-orders tr:last').after(data);
+                    });
                 
-                <label for="Amount"><b>Amount</b></label>
-                <input type="Number" min="0" max="10000000" placeholder="Enter Amount" name="Amount" required>
-            
-                <div class="clearfix">
-                  <button type="submit" class="signupbtn" >Send</button>
+                    $.post("/buyorder", {name: itemname}, function(data, status)
+                    {
+                        console.log(data);
+                        $('#buyorder').remove();
+                        $('#buy-orders tr:last').after(data);
+                    });
+                }
+            </script>
+            <h1 style="text-align: center;padding-bottom: 20px;">THE STORE</h1>
+            <div class="row">
+                <div class="leftcolumn">
+                    <div class="card">
+                        <div class="tab">
+                            <button class="tablinks" onclick="openCity(event, 'Paris')" >Contracts</button>
+                            <button class="tablinks" onclick="openCity(event, 'Tokyo')" id="defaultOpen" >Items</button>
+                        </div>
+                        <h2 id="bruh">ITEMS</h2>
+                        <hr>
+                        <div class="fakeimg" style="height:883px;">
+                            <div class="scrollable">
+                                <table id="item-list">
+                                    <tbody>
+                                        <tr>
+                                            <td onclick="refreshOrders()">Pineapples</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </form>
-          </div>
-    
-          
+                <div id="myModal2" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close">×</span>
+                            <h2 style="text-align:center;">TradeMe</h2>
+                        </div>
+                        <div class="modal-body">
+                            <h2 style="text-align: center;margin-bottom :5px;"><b>Post Sell-order</b></h2>
+                            <hr>
+                            <div class="form">
+                                <form action="/signup" method="POST" style="width: 500px;">
+                                    <div class="container">
+                                        <label for="Price"><b>Price</b></label>
+                                        <input type="Number" min="0" max="10000000" placeholder="Enter Price" name="Price" required>
+                                        <label for="Quantity Available"><b>Quantity Needed</b></label>
+                                        <input type="Number" min="0" max="10000000" placeholder="Enter Quantity Available" name="Quantity Needed" required>
+                                        <label for="Location"><b>Location</b></label>
+                                        <input type="text" size="40" maxlength="40" placeholder="Dining hall-dinner time" name="Location" required>
+                                        <label for="Date of expiration"><b>Date of expiration</b></label>
+                                        <input type="tel" size="10" maxlength="10"  placeholder="dd/mm/yyyy"
+                                            oninput="this.value = DDMMYYYY(this.value, event)" name="Date of expiration" required>
+                                        <label for="Note"><b>Note</b></label>
+                                        <input type="text" size="40" maxlength="40" placeholder="Enter Note" name="Note" >
+                                        <div class="clearfix">
+                                            <button type="submit" class="signupbtn" >Send</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <h2 style="text-align:center;"></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightcolumn">
+                    <div class="card">
+                        <h2 id="bruh">Sell orders</h2>
+                        <button class="modal-button" href="#myModal2" id="myBtn6">Post sell order</button>
+                        <hr>
+                        <div class="scrollable">
+                            <table id="sell-orders">
+                                <tbody>
+                                    <tr >
+                                        <th id="th-tr" >Price</th>
+                                        <th id="th-tr">Quantity Available</th>
+                                        <th id="th-tr">Location</th>
+                                        <th id="th-tr">Date of expiration</th>
+                                    </tr>
+                                    <tr id="sellorders" href="#myModal">
+                                        <td id=>Quantity</td>
+                                        <td>Quantity</td>
+                                        <td>Quantity</td>
+                                        <td>Quantity</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">×</span>
+                                <h2 style="text-align:center;">TradeMe</h2>
+                            </div>
+                            <div class="modal-body" >
+                                <h2 id="bruh">Description</h2>
+                                <hr style="margin-bottom:20px;">
+                                <div class="scrollable" style="height: 325px;">
+                                    <table id="sell-orders-row"  >
+                                        <tbody>
+                                            <tr>
+                                                <th id="th-tr" >Label</th>
+                                                <th id="th-tr" style="width: 475px;">Information</th>
+                                            </tr>
+                                            <tr >
+                                                <td >Creator</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr >
+                                                <td >Name</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr >
+                                                <td >Price</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr >
+                                                <td >Quantity Available</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr >
+                                                <td >Location</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr >
+                                                <td >Date of expiration</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr >
+                                                <td >Note</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <hr>
+                                <div class="form">
+                                    <form action="/signup" method="POST" style="width: 500px;">
+                                        <div class="container">
+                                            <input type="Number" min="0" max="10000000" placeholder="Enter Amount" name="Amount" required>
+                                            <div class="clearfix">
+                                                <button type="submit" class="signupbtn" >Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <h2 style="text-align:center;"></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2 id="bruh">Buy Orders</h2>
+                        <!-- Trigger/Open The Modal -->
+                        <button class="modal-button" href="#myModal3" id="myBtn6">Post buy order</button>
+                        <!-- The Modal -->
+                        <div id="myModal3" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close">×</span>
+                                    <h2 style="text-align:center;">TradeMe</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <h2 style="text-align: center;margin-bottom :5px;"><b>Post Buy-order</b></h2>
+                                    <hr>
+                                    <div class="form">
+                                        <form action="/signup" method="POST" style="width: 500px;">
+                                            <div class="container">
+                                                <label for="Price"><b>Price</b></label>
+                                                <input type="Number" min="0" max="10000000"  placeholder="Enter Price" name="Price" required>
+                                                <label for="Quantity Needed"><b>Quantity Needed</b></label>
+                                                <input type="Number" min="0" max="10000000" placeholder="Enter Quantity Needed" name="Quantity Needed" required>
+                                                <label for="Location"><b>Location</b></label>
+                                                <input type="text" size="100" maxlength="100" placeholder="Dining hall-dinner time" name="Location" required>
+                                                <label for="Date of expiration"><b>Date of expiration</b></label>
+                                                <input type="tel" size="10" maxlength="10"  placeholder="dd/mm/yyyy"
+                                                    oninput="this.value = DDMMYYYY(this.value, event)" name="Date of expiration" required>
+                                                <label for="Note"><b>Note</b></label>
+                                                <input type="text" size="40" maxlength="40" placeholder="Enter Note" name="Note" >
+                                                <div class="clearfix">
+                                                    <button type="submit" class="signupbtn" >Send</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <h2 style="text-align:center;"></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="myModal5" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close">×</span>
+                                    <h2 style="text-align:center;">TradeMe</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <h2 style="text-align: center;margin-bottom: 5px;"><b>Direct transfer</b></h2>
+                                    <hr>
+                                    <div class="form">
+                                        <form action="/directtransfer" method="POST" style="width: 500px;">
+                                            <div class="container">
+                                                <label for="Display Name"><b>Display Name</b></label>
+                                                <input type="text" size="40" maxlength="40" placeholder="Enter Display Name" name="Display Name" required>
+                                                <label for="Amount"><b>Amount</b></label>
+                                                <input type="Number" min="0" max="10000000" placeholder="Enter Amount" name="Amount" required>
+                                                <div class="clearfix">
+                                                    <button type="submit" class="signupbtn" >Send</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <h2 style="text-align:center;"></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div id="myModal4" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close">×</span>
+                                    <h2 style="text-align:center;">TradeMe</h2>
+                                </div>
+                                <div class="modal-body" >
+                                    <h2 id="bruh">Description</h2>
+                                    <hr style="margin-bottom:20px;">
+                                    <div class="scrollable" style="height: 325px;">
+                                        <table id="buy-orders-row"  >
+                                            <tbody>
+                                                <tr>
+                                                    <th id="th-tr" >Label</th>
+                                                    <th id="th-tr" style="width: 475px;">Information</th>
+                                                </tr>
+                                                <tr >
+                                                    <td >Creator</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr >
+                                                    <td >Name</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr >
+                                                    <td >Price</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr >
+                                                    <td >Quantity Needed</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr >
+                                                    <td >Location</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr >
+                                                    <td >Date of expiration</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr >
+                                                    <td >Note</td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <hr>
+                                    <div class="form">
+                                        <form action="/signup" method="POST"style="width: 500px;" >
+                                            <div class="container">
+                                                <input type="Number" min="0" max="10000000" placeholder="Enter Amount" name="Amount" required>
+                                                <div class="clearfix">
+                                                    <button type="submit" class="signupbtn" >Submit</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <h2 style="text-align:center;"></h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scrollable">
+                            <table id="buy-orders">
+                                <tbody>
+                                    <tr>
+                                        <th id="th-tr" >Price</th>
+                                        <th id="th-tr">Quantity Needed</th>
+                                        <th id="th-tr">Location</th>
+                                        <th id="th-tr">Date of expiration</th>
+                                    </tr>
+                                    <tr id="buyorders"   href="#myModal4">
+                                        <td >Quantity</td>
+                                        <td>Quantity</td>
+                                        <td>Quantity</td>
+                                        <td>Quantity</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <h2>Incomplete alpha testing version</h2>
+            </div>
         </div>
-        <div class="modal-footer">
-          <h2 style="text-align:center;">TradeMe</h2>
+        <div id="Paris" class="tabcontent">
+            <div style="background-color:  #4CAF50; height: 500px; width: 1351px; ">
+                <img src="/assets/images/logo.png" alt="logo" style=" position: absolute; width:700px;height:600px;  vertical-align:middle;margin:1px 450px; vertical-align: top;margin-bottom: 200px; ">
+            </div>
+            <ul>
+                <!-- <li><a href="/">Home</a></li> -->
+                <!-- <li><a class="active" href="storepage.html">Store</a></li> -->
+                <li style="float:right"><a href="/signout.html">Sign out</a></li>
+                <li  style="float:right"><a href="#myModal6" class="modal-button"  >Direct Transfer</a></li>
+            </ul>
+            <h1 style="text-align: center;padding-bottom: 20px;">THE STORE</h1>
+            <div class="row">
+                <div class="leftcolumn">
+                    <div class="card">
+                        <div class="tab">
+                            <button class="tablinks" onclick="openCity(event, 'Paris')" >Contracts</button>
+                            <button class="tablinks" onclick="openCity(event, 'Tokyo')" id="defaultOpen" >Items</button>
+                        </div>
+                        <h2 id="bruh">Contracts</h2>
+                        <hr>
+                        <div class="fakeimg" style="height:883px;">
+                            <div class="scrollable">
+                                <table id="item-list">
+                                    <tbody>
+                                        <tr>
+                                            <td onclick="refreshOrders()">Pineapples</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="myModal6" class="modal">
+                                <!-- Modal content -->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <span class="close">×</span>
+                                        <h2 style="text-align:center;">TradeMe</h2>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h2 style="text-align: center;margin-bottom: 5px;"><b>Direct transfer</b></h2>
+                                        <hr>
+                                        <div class="form">
+                                            <form action="/signup" method="POST" style="width: 500px;">
+                                                <div class="container">
+                                                    <label for="Display Name"><b>Display Name</b></label>
+                                                    <input type="text" size="40" maxlength="40" placeholder="Enter Display Name" name="Display Name" required>
+                                                    <label for="Amount"><b>Amount</b></label>
+                                                    <input type="Number" min="0" max="10000000" placeholder="Enter Amount" name="Amount" required>
+                                                    <div class="clearfix">
+                                                        <button type="submit" class="signupbtn" >Send</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <h2 style="text-align:center;">TradeMe</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <h2>Incomplete alpha testing version</h2>
+            </div>
         </div>
-      </div>
-    
-    </div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="footer">
-  <h2>Incomplete alpha testing version</h2>
-</div>
-
-</div>
-<script>
-  
-
-  function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-  
-  
-  </script>
-
-<script>
-$(document).ready(function(){
-  $("#myBtn").click(function(){
-    $("#myModal").show();
-  });
-});
-$(document).ready(function(){
-  $("#myBtn8").click(function(){
-    $("#myModal4").show();
-  });
-});
-
-
-</script>
-
-<script>
-  function DDMMYYYY(value, event) {
-    let newValue = value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');
-  
-    const dayOrMonth = (index) => index % 2 === 1 && index < 4;
-  
-    // on delete key.  
-    if (!event.data) {
-      return value;
-    }
-  
-    return newValue.split('').map((v, i) => dayOrMonth(i) ? v + '/' : v).join('');;
-  }
-  </script>
-<script>
-  // Get the button that opens the modal
-  var btn = document.querySelectorAll(".modal-button");
-  
-  
-  // All page modals
-  var modals = document.querySelectorAll('.modal');
-  
-  // Get the <span> element that closes the modal
-  var spans = document.getElementsByClassName("close");
-  
-  // When the user clicks the button, open the modal
-  for (var i = 0; i < btn.length; i++) {
-   btn[i].onclick = function(e) {
-      e.preventDefault();
-      modal = document.querySelector(e.target.getAttribute("href"));
-      modal.style.display = "block";
-   }
-  }
-  
-  // When the user clicks on <span> (x), close the modal
-  for (var i = 0; i < spans.length; i++) {
-   spans[i].onclick = function() {
-      for (var index in modals) {
-        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
-      }
-   }
-  }
-  
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-      if (event.target.classList.contains('modal')) {
-       for (var index in modals) {
-        if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
-       }
-      }
-  }
-  
-  </script>
-
-
-
-</body>
+        <script>
+            function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+            }
+            
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+            
+            
+        </script>
+        <script>
+            function DDMMYYYY(value, event) {
+              let newValue = value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');
+            
+              const dayOrMonth = (index) => index % 2 === 1 && index < 4;
+            
+              // on delete key.  
+              if (!event.data) {
+                return value;
+              }
+            
+              return newValue.split('').map((v, i) => dayOrMonth(i) ? v + '/' : v).join('');;
+            }
+        </script>
+        <script>
+            // Get the button that opens the modal
+            var btn = document.querySelectorAll(".modal-button");
+            
+            
+            // All page modals
+            var modals = document.querySelectorAll('.modal');
+            
+            // Get the <span> element that closes the modal
+            var spans = document.getElementsByClassName("close");
+            
+            // When the user clicks the button, open the modal
+            for (var i = 0; i < btn.length; i++) {
+             btn[i].onclick = function(e) {
+                e.preventDefault();
+                modal = document.querySelector(e.target.getAttribute("href"));
+                modal.style.display = "block";
+             }
+            }
+            
+            // When the user clicks on <span> (x), close the modal
+            for (var i = 0; i < spans.length; i++) {
+             spans[i].onclick = function() {
+                for (var index in modals) {
+                  if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+                }
+             }
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target.classList.contains('modal')) {
+                 for (var index in modals) {
+                  if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+                 }
+                }
+            }
+            
+        </script>
+        <script>
+            $(document).ready(function(){
+              $("#sellorders").click(function(){
+                $("#myModal").show();
+              });
+            });
+            $(document).ready(function(){
+              $("#buyorders").click(function(){
+                $("#myModal4").show();
+              });
+            });
+            
+            
+        </script>
+    </body>
 </html>
