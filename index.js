@@ -60,16 +60,16 @@ function make_transaction (senderID, recipientID, amount)
         console.log("Sender Initial Balance: " + _senderBalance);
 
         _command = "SELECT money FROM users WHERE ID=" + recipientID + ";";
-        sql.query(_command, function (err, result)
+        sql.query(_command, function (err2, result2)
         {
-            if (err) throw err;
-            _recipientBalance = result.money;
+            if (err2) throw err2;
+            _recipientBalance = result2.money;
             console.log("Recipient Initial Balance: " + _recipientBalance);
 
             if (_senderBalance < amount)
             {
                 console.log("[-] Not enough money in sender account")
-                // Display error message on site.
+                // TODO: Display error message on site.
             }
             else
             {
@@ -77,15 +77,15 @@ function make_transaction (senderID, recipientID, amount)
                 var _newRecipientBalance = _recipientBalance + amount;
 
                 _command = "UPDATE users SET money=" + _newSenderBalance + " WHERE ID=" + senderID + ";";
-                sql.query(_command, function (err, result)
+                sql.query(_command, function (err3, result3)
                 {
-                    if (err) throw err;
+                    if (err3) throw err3;
                     console.log("Sender Final Balance: " + _senderBalance);
 
                     _command = "UPDATE users SET money=" + _newRecipientBalance + " WHERE ID=" + recipientID + ";";
-                    sql.query(_command, function (err, result)
+                    sql.query(_command, function (err4, result4)
                     {
-                        if (err) throw err;
+                        if (err4) throw err4;
                         console.log("Recipient Final Balance: " + _recipientBalance);
                     });
                 });
@@ -114,7 +114,7 @@ store.get ('/signup.html', function (req, res)
 
 store.get ('/signin.html', function (req, res)
 {
-    make_transaction(1, 2, 50.00);
+    //make_transaction(1, 2, 500.00);
     res.sendFile(__dirname + '/src/views/signin.html'); 
 });
 
@@ -166,7 +166,7 @@ store.post ('/signin', function (req, res)
     var _username = req.body.username;
     var _password = req.body.password;
 
-    var _command = "SELECT ID FROM users WHERE username='" + _username + "'AND password='" + _password + "';";
+    var _command = "SELECT ID FROM users WHERE username='" + _username + "' AND password='" + _password + "';";
     sql.query(_command, function (err, result)
     {
         if (err)
